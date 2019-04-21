@@ -4,3 +4,7 @@
 ### Swift 5
 
 You can see UizaPlayerTab example
+
+### Swift 3.2
+
+You can see UizaPlayerV4 example
