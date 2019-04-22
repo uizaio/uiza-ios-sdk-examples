@@ -16,7 +16,7 @@ class LiveStreamViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        liveStreamViewController.liveEventId = "live_id"
+        liveStreamViewController.liveEventId = "8614f49c-c1db-48c8-8289-e88ef99fc8ba"
         self.present(liveStreamViewController, animated: true, completion: nil)
     }
     

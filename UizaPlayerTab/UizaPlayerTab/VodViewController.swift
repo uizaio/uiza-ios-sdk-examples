@@ -8,42 +8,78 @@
 
 import UIKit
 import UizaSDK
+//import FrameLayoutKit
 
 class VodViewController: UIViewController {
     let playerViewController = UZPlayerViewController()
+    let domainApiTxt = UITextField()
+    let domainKeyTxt = UITextField()
+    let entityIdTxt = UITextField()
+//    let label1 = UILabel()
+//    let label2 = UILabel()
+    let label3 = UILabel()
+    let loadEntityBtn = UIButton()
+    var frameLayout : StackFrameLayout!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        UizaSDK.initWith(appId: "app_id", token: "app_token", api: "api_domain")
-        UZContentServices().loadDetail(entityId: "entity_id", completionBlock: {(videoItem, error) in
-            if error != nil {
-                print("Error: \(error)")
-            }else{
-                print("Video: \(videoItem)")
-            }
-        })
+//        label1.text = "Domain api:"
+//        label2.text = "Domain key:"
+        label3.text = "Entity id:"
+        loadEntityBtn.setTitle("Load video", for: .normal)
+        loadEntityBtn.setTitleColor(.black, for: .normal)
+        loadEntityBtn.addTarget(self, action: #selector(self.loadEntityBtnClicked), for: .touchUpInside)
+        UizaSDK.initWith(appId: "api_id", token: "token", api: "api_domain")
         playerViewController.autoFullscreenWhenRotateDevice = false
-        playerViewController.player.controlView.theme = UZTheme1()
-        playerViewController.player.loadVideo(entityId: "entity_id")
-        //        present(playerViewController, animated: true, completion: nil)
-        self.view.addSubview(playerViewController.view)
+        playerViewController.player.controlView.theme = UZTheme2()
+        playerViewController.player.controlView.showControlView()
+        playerViewController.setFullscreen(fullscreen: false)
+//        playerViewController.player.loadVideo(entityId: "d09a35a7-6fce-461f-a008-67a6a959845a")
+        view.addSubview(playerViewController.view)
+        view.addSubview(label3)
+        view.addSubview(entityIdTxt)
+        view.addSubview(loadEntityBtn)
+        frameLayout = StackFrameLayout(direction: .vertical)
+        frameLayout.append(view: playerViewController.view).heightRatio = 9/16
+        let entityId = DoubleFrameLayout(direction: .horizontal, alignment: .top, views: [label3, entityIdTxt])
+        entityId.spacing = 10
+        //set layout for entity id components
+        frameLayout.append(frameLayout: entityId).configurationBlock = { layout in
+            //top, left, bottom, right
+            layout.edgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 20, right: 20)
+        }
+        frameLayout.append(view: loadEntityBtn)
+        view.addSubview(frameLayout)
+        
+        
+        
+    }
+    
+    //load entity
+    @objc func loadEntityBtnClicked(){
+        let entityId = entityIdTxt.text
+        if(!entityId!.isEmpty){
+            playerViewController.player.loadVideo(entityId: entityId ?? "")
+        }
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
     public func stopPlay(){
         if(playerViewController.player.isPlaying){
             playerViewController.player.pause()
         }
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        frameLayout.frame = view.bounds
+    }
+    
+    override public var shouldAutorotate: Bool{
+        return true
+    }
+    
+    
 
 }
