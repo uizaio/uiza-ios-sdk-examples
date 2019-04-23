@@ -29,7 +29,7 @@ class VodViewController: UIViewController {
         loadEntityBtn.setTitle("Load video", for: .normal)
         loadEntityBtn.setTitleColor(.black, for: .normal)
         loadEntityBtn.addTarget(self, action: #selector(self.loadEntityBtnClicked), for: .touchUpInside)
-        UizaSDK.initWith(appId: "api_id", token: "token", api: "api_domain")
+        UizaSDK.initWith(appId: "app_id", token: "app_token", api: "api_domain")
         playerViewController.autoFullscreenWhenRotateDevice = false
         playerViewController.player.controlView.theme = UZTheme2()
         playerViewController.player.controlView.showControlView()
@@ -54,6 +54,17 @@ class VodViewController: UIViewController {
         
         
     }
+    
+    //auto hide keyboard if textfield lose focus
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first{
+            if entityIdTxt.isFirstResponder && touch.view != entityIdTxt{
+                entityIdTxt.resignFirstResponder()
+            }
+        }
+        super.touchesBegan(touches, with: event)
+    }
+    
     
     //load entity
     @objc func loadEntityBtnClicked(){

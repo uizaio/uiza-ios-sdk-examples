@@ -10,14 +10,15 @@ import UIKit
 import UizaSDK
 
 class LiveStreamViewController: UIViewController {
-
-    let liveStreamViewController = UZLiveStreamViewController()
+    
+    let viewController = UZLiveStreamViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        liveStreamViewController.liveEventId = "8614f49c-c1db-48c8-8289-e88ef99fc8ba"
-        self.present(liveStreamViewController, animated: true, completion: nil)
+        UizaSDK.initWith(appId: "api_id", token: "api_token", api: "api_domain")
+        viewController.liveEventId = "entity_id"
+        
+        self.present(viewController, animated: true, completion: nil)
     }
     
 
@@ -31,9 +32,6 @@ class LiveStreamViewController: UIViewController {
     }
     */
     public func stopLiveStream(){
-        if(liveStreamViewController.isLive){
-            liveStreamViewController.askToStop()
-        }
     }
 
 }
