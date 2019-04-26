@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C530BF5227058EB003E145E /* UizaSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UizaSDK.framework; path = "../../../uiza-bitbucket/master branch/uizasdk-ios/Build/Products/Debug-iphoneos/UizaSDK.framework"; sourceTree = "<group>"; };
 		0C7CBCE5226871680019684C /* UizaPlayerTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UizaPlayerTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C7CBCE8226871680019684C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C7CBCEA226871680019684C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,13 +84,13 @@
 				6541B184DCE70BD35549EB66 /* Pods-UizaPlayerTab.debug.xcconfig */,
 				F9C4F27891EC90AE6E6DB430 /* Pods-UizaPlayerTab.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		9641EA1C7E343FEE41D3C0D6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0C530BF5227058EB003E145E /* UizaSDK.framework */,
 				BCFEDECB46B2DC6EAF3752E1 /* Pods_UizaPlayerTab.framework */,
 			);
 			name = Frameworks;
@@ -106,8 +107,8 @@
 				0C7CBCE1226871680019684C /* Sources */,
 				0C7CBCE2226871680019684C /* Frameworks */,
 				0C7CBCE3226871680019684C /* Resources */,
-				D780989F193D48F7D06AEE4A /* [CP] Embed Pods Frameworks */,
-				F1E7ED15018B8597DD5C463E /* [CP] Copy Pods Resources */,
+				60224CAB0B790F765636B267 /* [CP] Embed Pods Frameworks */,
+				DEF987509D72B8A1E4E0FF69 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -187,7 +188,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D780989F193D48F7D06AEE4A /* [CP] Embed Pods Frameworks */ = {
+		60224CAB0B790F765636B267 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -204,7 +205,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UizaPlayerTab/Pods-UizaPlayerTab-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F1E7ED15018B8597DD5C463E /* [CP] Copy Pods Resources */ = {
+		DEF987509D72B8A1E4E0FF69 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (

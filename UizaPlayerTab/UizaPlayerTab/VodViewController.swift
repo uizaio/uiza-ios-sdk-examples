@@ -29,7 +29,6 @@ class VodViewController: UIViewController {
         loadEntityBtn.setTitle("Load video", for: .normal)
         loadEntityBtn.setTitleColor(.black, for: .normal)
         loadEntityBtn.addTarget(self, action: #selector(self.loadEntityBtnClicked), for: .touchUpInside)
-        UizaSDK.initWith(appId: "app_id", token: "app_token", api: "api_domain")
         playerViewController.autoFullscreenWhenRotateDevice = false
         playerViewController.player.controlView.theme = UZTheme2()
         playerViewController.player.controlView.showControlView()

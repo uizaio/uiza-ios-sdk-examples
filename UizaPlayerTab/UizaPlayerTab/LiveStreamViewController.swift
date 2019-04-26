@@ -15,9 +15,7 @@ class LiveStreamViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UizaSDK.initWith(appId: "api_id", token: "api_token", api: "api_domain")
-        viewController.liveEventId = "entity_id"
-        
+        viewController.liveEventId = "live_event_id"
         self.present(viewController, animated: true, completion: nil)
     }
     
