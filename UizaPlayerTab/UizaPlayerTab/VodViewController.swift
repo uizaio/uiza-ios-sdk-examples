@@ -23,6 +23,7 @@ class VodViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 //        label1.text = "Domain api:"
 //        label2.text = "Domain key:"
         label3.text = "Entity id:"

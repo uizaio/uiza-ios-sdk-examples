@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C175A72227F606C004F9A0E /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C175A71227F606C004F9A0E /* MainTabViewController.swift */; };
 		0C7CBCE9226871680019684C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7CBCE8226871680019684C /* AppDelegate.swift */; };
 		0C7CBCEB226871680019684C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7CBCEA226871680019684C /* ViewController.swift */; };
 		0C7CBCEE226871680019684C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C7CBCEC226871680019684C /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C175A71227F606C004F9A0E /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		0C530BF5227058EB003E145E /* UizaSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UizaSDK.framework; path = "../../../uiza-bitbucket/master branch/uizasdk-ios/Build/Products/Debug-iphoneos/UizaSDK.framework"; sourceTree = "<group>"; };
 		0C7CBCE5226871680019684C /* UizaPlayerTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UizaPlayerTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C7CBCE8226871680019684C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				0C7CBCF42268716A0019684C /* Info.plist */,
 				0C7CBCFA226871A80019684C /* VodViewController.swift */,
 				0C7CBCFC226871C10019684C /* LiveStreamViewController.swift */,
+				0C175A71227F606C004F9A0E /* MainTabViewController.swift */,
 			);
 			path = UizaPlayerTab;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C175A72227F606C004F9A0E /* MainTabViewController.swift in Sources */,
 				0C7CBCFD226871C10019684C /* LiveStreamViewController.swift in Sources */,
 				0C7CBCEB226871680019684C /* ViewController.swift in Sources */,
 				0C7CBCFB226871A80019684C /* VodViewController.swift in Sources */,

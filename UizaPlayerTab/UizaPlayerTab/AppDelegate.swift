@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import UizaSDK
+//import UizaSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        UizaSDK.initWith(appId: "app_id", token: "app_token", api: "api_domain", enviroment: .production, version: .v4)//can use .v3
+//        if let tabBarController = self.window!.rootViewController as? UITabBarController {
+//            tabBarController.selectedIndex = 2// you must input settings before using app
+//        }
+//        UizaSDK.initWith(appId: "app_id", token: "app_token", api: "api_domain", enviroment: .production, version: .v4)//can use .v3
         return true
     }
 
