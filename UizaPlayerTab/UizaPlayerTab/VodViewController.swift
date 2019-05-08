@@ -10,69 +10,93 @@ import UIKit
 import UizaSDK
 //import FrameLayoutKit
 
-class VodViewController: UIViewController {
+class VodViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     let playerViewController = UZPlayerViewController()
-    let domainApiTxt = UITextField()
-    let domainKeyTxt = UITextField()
-    let entityIdTxt = UITextField()
-//    let label1 = UILabel()
-//    let label2 = UILabel()
-    let label3 = UILabel()
-    let loadEntityBtn = UIButton()
-    var frameLayout : StackFrameLayout!
+//    let loadEntityBtn = UIButton()
+    
+    private var videoList: [String] = []
+    private var videoIds: [String] = []
+    let videoTableIdentifier = "videoTableIdentifier"
+    private var videoTableView: UITableView!
+    
+    var frameLayout : StackFrameLayout! //https://github.com/kennic/NKFrameLayoutKit
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        label1.text = "Domain api:"
-//        label2.text = "Domain key:"
-        label3.text = "Entity id:"
-        loadEntityBtn.setTitle("Load video", for: .normal)
-        loadEntityBtn.setTitleColor(.black, for: .normal)
-        loadEntityBtn.addTarget(self, action: #selector(self.loadEntityBtnClicked), for: .touchUpInside)
         playerViewController.autoFullscreenWhenRotateDevice = false
         playerViewController.player.controlView.theme = UZTheme2()
         playerViewController.player.controlView.showControlView()
         playerViewController.setFullscreen(fullscreen: false)
-//        playerViewController.player.loadVideo(entityId: "d09a35a7-6fce-461f-a008-67a6a959845a")
         view.addSubview(playerViewController.view)
-        view.addSubview(label3)
-        view.addSubview(entityIdTxt)
-        view.addSubview(loadEntityBtn)
+        loadVideoList()
+        let barHeight: CGFloat = UIApplication.shared.statusBarFrame.size.height
+        let displayWidth: CGFloat = self.view.frame.width
+        let displayHeight: CGFloat = self.view.frame.height
+        videoTableView = UITableView(frame: CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - barHeight - 100))
+        videoTableView.register(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
+        videoTableView.dataSource = self
+        videoTableView.delegate = self
+        view.addSubview(videoTableView)
         frameLayout = StackFrameLayout(direction: .vertical)
         frameLayout.append(view: playerViewController.view).heightRatio = 9/16
-        let entityId = DoubleFrameLayout(direction: .horizontal, alignment: .top, views: [label3, entityIdTxt])
-        entityId.spacing = 10
-        //set layout for entity id components
-        frameLayout.append(frameLayout: entityId).configurationBlock = { layout in
-            //top, left, bottom, right
-            layout.edgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 20, right: 20)
-        }
-        frameLayout.append(view: loadEntityBtn)
+        
+        frameLayout.append(view: videoTableView).heightRatio = 12/16
         view.addSubview(frameLayout)
         
         
         
     }
     
-    //auto hide keyboard if textfield lose focus
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first{
-            if entityIdTxt.isFirstResponder && touch.view != entityIdTxt{
-                entityIdTxt.resignFirstResponder()
+    func loadVideoList() -> Void{
+        UZContentServices().loadEntity(metadataId: nil, publishStatus: .success, page: 0, limit: 20, completionBlock: {(videos, error) in
+            if(error != nil){
+                print("Error: \(error)")
+            }else{
+                self.videoTableView.beginUpdates()
+                for video in videos!{
+                    self.videoList.append(video.name)
+                    self.videoIds.append(video.id)
+//                    print("Video: \(video.name)")
+                    self.videoTableView.insertRows(at: [IndexPath(row: self.videoList.count - 1, section: 0)], with: .automatic)
+                }
+                
+                self.videoTableView.endUpdates()
+                
             }
-        }
-        super.touchesBegan(touches, with: event)
+        })
     }
     
-    
-    //load entity
-    @objc func loadEntityBtnClicked(){
-        let entityId = entityIdTxt.text
-        if(!entityId!.isEmpty){
-            playerViewController.player.loadVideo(entityId: entityId ?? "")
-        }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return videoList.count
     }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: videoTableIdentifier)
+        if(cell == nil){
+            cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: videoTableIdentifier)
+        }
+        cell?.textLabel?.text = videoList[indexPath.row]
+        return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print("Section: \(indexPath.section)")
+//        print("Row: \(indexPath.row)")
+        let index = indexPath.row
+        playerViewController.player.loadVideo(entityId: self.videoIds[index])
+    }
+    
+    //auto hide keyboard if textfield lose focus
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        if let touch = touches.first{
+//            if entityIdTxt.isFirstResponder && touch.view != entityIdTxt{
+//                entityIdTxt.resignFirstResponder()
+//            }
+//        }
+//        super.touchesBegan(touches, with: event)
+//    }
+    
+    
     
 
     
