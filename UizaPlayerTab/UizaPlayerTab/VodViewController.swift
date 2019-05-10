@@ -41,10 +41,7 @@ class VodViewController: UIViewController, UITableViewDataSource, UITableViewDel
         frameLayout.append(view: playerViewController.view).heightRatio = 9/16
         
         frameLayout.append(view: videoTableView).heightRatio = 12/16
-        view.addSubview(frameLayout)
-        
-        
-        
+        view.addSubview(frameLayout)        
     }
     
     func loadVideoList() -> Void{

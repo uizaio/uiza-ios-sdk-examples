@@ -18,6 +18,7 @@
 		0C7CBCFD226871C10019684C /* LiveStreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7CBCFC226871C10019684C /* LiveStreamViewController.swift */; };
 		0CAD822322829311005747FF /* FloatingPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAD822222829311005747FF /* FloatingPlayerViewController.swift */; };
 		0CAD82252282BF45005747FF /* FloatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAD82242282BF45005747FF /* FloatViewController.swift */; };
+		0CAD82272282E492005747FF /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAD82262282E492005747FF /* LiveViewController.swift */; };
 		BE42426D1D84754B96BAABD0 /* Pods_UizaPlayerTab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCFEDECB46B2DC6EAF3752E1 /* Pods_UizaPlayerTab.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		0C7CBCFC226871C10019684C /* LiveStreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStreamViewController.swift; sourceTree = "<group>"; };
 		0CAD822222829311005747FF /* FloatingPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPlayerViewController.swift; sourceTree = "<group>"; };
 		0CAD82242282BF45005747FF /* FloatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatViewController.swift; sourceTree = "<group>"; };
+		0CAD82262282E492005747FF /* LiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
 		6541B184DCE70BD35549EB66 /* Pods-UizaPlayerTab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UizaPlayerTab.debug.xcconfig"; path = "Target Support Files/Pods-UizaPlayerTab/Pods-UizaPlayerTab.debug.xcconfig"; sourceTree = "<group>"; };
 		BCFEDECB46B2DC6EAF3752E1 /* Pods_UizaPlayerTab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UizaPlayerTab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C4F27891EC90AE6E6DB430 /* Pods-UizaPlayerTab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UizaPlayerTab.release.xcconfig"; path = "Target Support Files/Pods-UizaPlayerTab/Pods-UizaPlayerTab.release.xcconfig"; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				0C175A732280452D004F9A0E /* VideoCellTableViewCell.swift */,
 				0CAD822222829311005747FF /* FloatingPlayerViewController.swift */,
 				0CAD82242282BF45005747FF /* FloatViewController.swift */,
+				0CAD82262282E492005747FF /* LiveViewController.swift */,
 			);
 			path = UizaPlayerTab;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				0C7CBCEB226871680019684C /* ViewController.swift in Sources */,
 				0C175A742280452E004F9A0E /* VideoCellTableViewCell.swift in Sources */,
 				0C7CBCFB226871A80019684C /* VodViewController.swift in Sources */,
+				0CAD82272282E492005747FF /* LiveViewController.swift in Sources */,
 				0C7CBCE9226871680019684C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

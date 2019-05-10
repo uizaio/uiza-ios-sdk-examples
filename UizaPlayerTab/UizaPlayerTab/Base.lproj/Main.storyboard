@@ -17,10 +17,64 @@
                     <view key="view" contentMode="scaleToFill" id="cX0-UI-jOh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5K-gh-lWs">
+                                <rect key="frame" x="19.999999999999996" y="60" width="49.666666666666657" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oLq-6W-aVK">
+                                <rect key="frame" x="20" y="91" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Options:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sf4-ld-k0i">
+                                <rect key="frame" x="20" y="131" width="64.666666666666671" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cEe-H3-lAy">
+                                <rect key="frame" x="47" y="162" width="320" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="UVg-U2-eNu"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="uCk-Tu-1l5" id="3jw-3e-S8D"/>
+                                    <outlet property="delegate" destination="uCk-Tu-1l5" id="Szq-4a-tmq"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2S8-ML-BFK">
+                                <rect key="frame" x="170.66666666666666" y="222" width="73" height="30"/>
+                                <state key="normal" title="Create live"/>
+                                <connections>
+                                    <action selector="createLive:" destination="uCk-Tu-1l5" eventType="touchUpInside" id="757-dk-1u7"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2S8-ML-BFK" firstAttribute="centerX" secondItem="cX0-UI-jOh" secondAttribute="centerX" id="8IG-WK-hjP"/>
+                            <constraint firstItem="f5K-gh-lWs" firstAttribute="leading" secondItem="rDd-ZI-tnk" secondAttribute="leading" constant="20" id="KzC-Nr-mkJ"/>
+                            <constraint firstItem="rDd-ZI-tnk" firstAttribute="trailing" secondItem="oLq-6W-aVK" secondAttribute="trailing" constant="20" id="OJU-oi-Ksh"/>
+                            <constraint firstItem="cEe-H3-lAy" firstAttribute="top" secondItem="Sf4-ld-k0i" secondAttribute="bottom" constant="10" id="P8n-FV-zSf"/>
+                            <constraint firstItem="oLq-6W-aVK" firstAttribute="top" secondItem="f5K-gh-lWs" secondAttribute="bottom" constant="10" id="aeK-d0-sxc"/>
+                            <constraint firstItem="Sf4-ld-k0i" firstAttribute="leading" secondItem="rDd-ZI-tnk" secondAttribute="leading" constant="20" id="dgw-Uq-bcu"/>
+                            <constraint firstItem="f5K-gh-lWs" firstAttribute="top" secondItem="rDd-ZI-tnk" secondAttribute="top" constant="40" id="eRs-2x-KpN"/>
+                            <constraint firstItem="oLq-6W-aVK" firstAttribute="leading" secondItem="rDd-ZI-tnk" secondAttribute="leading" constant="20" id="lQG-qt-0ub"/>
+                            <constraint firstItem="2S8-ML-BFK" firstAttribute="top" secondItem="cEe-H3-lAy" secondAttribute="bottom" constant="10" id="lxm-ad-nWs"/>
+                            <constraint firstItem="Sf4-ld-k0i" firstAttribute="top" secondItem="oLq-6W-aVK" secondAttribute="bottom" constant="10" id="urL-tr-R1i"/>
+                            <constraint firstItem="cEe-H3-lAy" firstAttribute="centerX" secondItem="cX0-UI-jOh" secondAttribute="centerX" id="vfI-ij-gcx"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="rDd-ZI-tnk"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="LiveStream" id="bmt-MR-SQb"/>
+                    <connections>
+                        <outlet property="liveName" destination="oLq-6W-aVK" id="22T-K5-IhC"/>
+                        <outlet property="modePicker" destination="cEe-H3-lAy" id="RNA-V1-XxL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLV-Ky-ajz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -10,6 +10,9 @@ import UIKit
 import UizaSDK
 
 //some global variables
+var sdkKey:String = ""
+var sdkUri:String = ""
+var sdkLiveId:String = ""
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -22,7 +25,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.            
+        // Do any additional setup after loading the view.
+//        let encode = 0
+//        let dvr = 1
+//        let params:[String:Any] = ["name": "test", "mode" : "push", "encode": encode, "dvr": dvr, "linkStream": [""], "resourceMode": "single"]
+//        self.sendRequest(parameters: params, link: "https://ap-southeast-1-api.uiza.co/api/public/v4/live/entity")
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -47,6 +54,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let version = apiVersions[index]
         if(!appId.isEmpty && !appKey.isEmpty && !appUri.isEmpty){
             //next to screen
+            sdkKey = appKey
+            sdkUri = appUri
             if version == "v4"{
                 UizaSDK.initWith(appId: appId, token: appKey, api: appUri, enviroment: .production, version: .v4)//can use .v3
             }else{
@@ -62,6 +71,30 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             present(alertController, animated: true, completion: nil)
         }
     }
+    
+//    func sendRequest(parameters params: [String: Any], link urlLink:String){
+//        let data = try? JSONSerialization.data(withJSONObject: params)
+//        let url = URL(string: urlLink)
+//        var request = URLRequest(url: url!)
+//        request.httpMethod = "POST"
+//        request.httpBody = data
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.setValue("\(data)", forHTTPHeaderField: "Content-Length")
+//        request.setValue("uap-9ee4c164e3944ad781ddcafbfad91a0d-1ac7c3ff", forHTTPHeaderField: "Authorization")
+//        let task = URLSession.shared.dataTask(with: request){ data, response, error in
+//            guard let data = data, error == nil else {
+//                print("ducla")
+//                print(error?.localizedDescription ?? "No data")
+//                return
+//            }
+//            let response = try? JSONSerialization.jsonObject(with: data, options: [])
+//            if let response = response as? [String: Any]{
+//                print("ducla")
+//                print(response)
+//            }
+//        }
+//        task.resume()
+//    }
 
 }
 
