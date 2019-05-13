@@ -24,6 +24,9 @@ pod install
 
 Then click <a name="fenced-code-block">UizaPlayerTab.xcworkspace</a> to open project
 
+### Notice
+
+If you use UizaSDK 7.2, please add [Sentry](https://docs.sentry.io/clients/cocoa/) and `pod 'FrameLayoutKit'` mannually in podfile
 
 ### Swift 5
 

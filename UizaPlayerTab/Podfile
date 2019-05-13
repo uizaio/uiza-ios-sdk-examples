@@ -7,4 +7,6 @@ target 'UizaPlayerTab' do
 
   # Pods for UizaPlayerTab
   pod "UizaSDK"
+  pod "Sentry"
+  pod 'FrameLayoutKit'
 end

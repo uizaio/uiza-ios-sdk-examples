@@ -8,6 +8,7 @@
 
 import UIKit
 import UizaSDK
+import FrameLayoutKit
 
 class FloatingPlayerViewController: UZFloatingPlayerViewController {
 

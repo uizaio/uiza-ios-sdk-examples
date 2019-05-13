@@ -8,7 +8,7 @@
 
 import UIKit
 import UizaSDK
-//import FrameLayoutKit
+import FrameLayoutKit
 
 class VodViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     let playerViewController = UZPlayerViewController()

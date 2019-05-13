@@ -1,57 +1,75 @@
 PODS:
   - Alamofire (4.8.2)
-  - google-cast-sdk (4.3.5):
-    - google-cast-sdk/Core (= 4.3.5)
+  - FrameLayoutKit (3.4)
+  - google-cast-sdk (4.4.1):
+    - google-cast-sdk/Core (= 4.4.1)
     - Protobuf (~> 3.0)
-  - google-cast-sdk/Core (4.3.5):
+  - google-cast-sdk/Core (4.4.1):
     - Protobuf (~> 3.0)
   - GoogleAds-IMA-iOS-SDK (3.9.0)
   - "LFLiveKit+ (2.6.2)"
+  - NKButton (3.8.3):
+    - FrameLayoutKit
+    - NVActivityIndicatorView/AppExtension
   - NKModalViewManager (3.5.2)
   - NVActivityIndicatorView/AppExtension (4.7.0)
   - Protobuf (3.7.0)
-  - SDWebImage (5.0.1):
-    - SDWebImage/Core (= 5.0.1)
-  - SDWebImage/Core (5.0.1)
-  - SwiftyJSON (4.3.0)
-  - UizaSDK (7.0.7):
+  - SDWebImage (5.0.2):
+    - SDWebImage/Core (= 5.0.2)
+  - SDWebImage/Core (5.0.2)
+  - Sentry (4.3.4):
+    - Sentry/Core (= 4.3.4)
+  - Sentry/Core (4.3.4)
+  - SwiftyJSON (5.0.0)
+  - UizaSDK (7.2.2):
     - Alamofire
+    - FrameLayoutKit
     - google-cast-sdk
     - GoogleAds-IMA-iOS-SDK
     - "LFLiveKit+"
+    - NKButton
     - NKModalViewManager
     - NVActivityIndicatorView/AppExtension
     - SDWebImage
+    - Sentry
     - SwiftyJSON
 
 DEPENDENCIES:
+  - FrameLayoutKit
+  - Sentry
   - UizaSDK
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - FrameLayoutKit
     - google-cast-sdk
     - GoogleAds-IMA-iOS-SDK
     - "LFLiveKit+"
+    - NKButton
     - NKModalViewManager
     - NVActivityIndicatorView
     - Protobuf
     - SDWebImage
+    - Sentry
     - SwiftyJSON
     - UizaSDK
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  google-cast-sdk: 462e10c781ea8ad480d2e16200bb8584ef067e07
+  FrameLayoutKit: ec991b3e454e98078fb050cf172cd15cfff4bbe8
+  google-cast-sdk: b4583a1591a94b693be5e913e0ae84447fbd6b9d
   GoogleAds-IMA-iOS-SDK: 8f57879738137b81a48ba792e42439e6bff5413b
   "LFLiveKit+": 0da21f6b18c07a4160aa61f17fb436350c558eac
+  NKButton: 419969081ffcf3347ad5436d6412a10ce69d777c
   NKModalViewManager: 8171cd4fb9315193fc2d05f011f9a29c9ca95a0f
   NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
   Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
-  SDWebImage: 27dd2c9ea07a2252f94557c9fbb6105ee94b74c9
-  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
-  UizaSDK: 6c32e4f90a9de9959b459fce01cfe95d17718e6c
+  SDWebImage: 6764b5fa0f73c203728052955dbefa2bf1f33282
+  Sentry: 26f0e6492b103e87434d1a5eea2d241a36f2c2a2
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  UizaSDK: 0b41020884b586a722ed730f9bfbd9da4ae08091
 
-PODFILE CHECKSUM: ce184fd14085bcc89f76d1f1c9f9cb9bb83849a8
+PODFILE CHECKSUM: a3c96f430b59499a3c54f0e3bfaf81d7aba7b881
 
 COCOAPODS: 1.7.0.beta.3
