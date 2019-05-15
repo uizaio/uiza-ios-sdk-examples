@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C145EA4228C788800896FF2 /* UZPlayerCustomTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C145EA3228C788800896FF2 /* UZPlayerCustomTheme.swift */; };
 		0C175A72227F606C004F9A0E /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C175A71227F606C004F9A0E /* MainTabViewController.swift */; };
 		0C175A742280452E004F9A0E /* VideoCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C175A732280452D004F9A0E /* VideoCellTableViewCell.swift */; };
 		0C7CBCE9226871680019684C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7CBCE8226871680019684C /* AppDelegate.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C145EA3228C788800896FF2 /* UZPlayerCustomTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UZPlayerCustomTheme.swift; path = Themes/UZPlayerCustomTheme.swift; sourceTree = "<group>"; };
 		0C175A71227F606C004F9A0E /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		0C175A732280452D004F9A0E /* VideoCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCellTableViewCell.swift; sourceTree = "<group>"; };
 		0C530BF5227058EB003E145E /* UizaSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UizaSDK.framework; path = "../../../uiza-bitbucket/master branch/uizasdk-ios/Build/Products/Debug-iphoneos/UizaSDK.framework"; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				0CAD822222829311005747FF /* FloatingPlayerViewController.swift */,
 				0CAD82242282BF45005747FF /* FloatViewController.swift */,
 				0CAD82262282E492005747FF /* LiveViewController.swift */,
+				0C145EA3228C788800896FF2 /* UZPlayerCustomTheme.swift */,
 			);
 			path = UizaPlayerTab;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				0C175A742280452E004F9A0E /* VideoCellTableViewCell.swift in Sources */,
 				0C7CBCFB226871A80019684C /* VodViewController.swift in Sources */,
 				0CAD82272282E492005747FF /* LiveViewController.swift in Sources */,
+				0C145EA4228C788800896FF2 /* UZPlayerCustomTheme.swift in Sources */,
 				0C7CBCE9226871680019684C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

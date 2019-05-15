@@ -24,7 +24,8 @@ class VodViewController: UIViewController, UITableViewDataSource, UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         playerViewController.autoFullscreenWhenRotateDevice = false
-        playerViewController.player.controlView.theme = UZTheme2()
+//        playerViewController.player.controlView.theme = UZTheme2()
+        playerViewController.player.controlView.theme = UZPlayerCustomTheme()
         playerViewController.player.controlView.showControlView()
         playerViewController.setFullscreen(fullscreen: false)
         view.addSubview(playerViewController.view)
