@@ -73,4 +73,8 @@ class  MyLiveStreamUIView: UZLiveStreamUIView {
         super.layoutSubviews()
         //customize layout here
     }
+    
+    override func onButtonSelected(_ button: UIButton) {
+        print("\(button.currentTitle)")
+    }
 }
