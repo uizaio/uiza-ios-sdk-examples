@@ -73,7 +73,7 @@ class LiveStreamViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
         let params:[String:Any] = ["name": liveName.text!, "mode" : modeList[mode], "encode": encode, "dvr": dvr, "linkStream": [], "resourceMode": "single"]
         //create live event
-        self.sendRequest(parameters: params, link: "https://" + sdkUri + "/api/public/v4/live/entity", protocol: "POST"){response, error in
+        LiveStreamViewController.sendRequest(parameters: params, link: "https://" + sdkUri + "/api/public/v4/live/entity", protocol: "POST"){response, error in
             if error != nil {
                 print("\(error)")
             }else{
@@ -82,7 +82,7 @@ class LiveStreamViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 let data:[String:Any] = response!["data"] as! [String : Any]
                 let liveId = data["id"]
                 let liveParams:[String:Any] = ["id": liveId!]
-                self.sendRequest(parameters: liveParams, link: "https://" + sdkUri + "/api/public/v4/live/entity/feed", protocol: "POST"){ response,error in
+                LiveStreamViewController.sendRequest(parameters: liveParams, link: "https://" + sdkUri + "/api/public/v4/live/entity/feed", protocol: "POST"){ response,error in
                     if error != nil {
                         print("\(error)")
                     }else{
@@ -107,10 +107,7 @@ class LiveStreamViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
     }
     
-    public func stopLiveStream(){
-    }
-    
-    func sendRequest(parameters params:[String: Any], link urlLink:String, protocol proto: String, completion: @escaping ([String: Any]?, Error?) -> Void){
+    static func sendRequest(parameters params:[String: Any], link urlLink:String, protocol proto: String, completion: @escaping ([String: Any]?, Error?) -> Void){
         let requestBody = try? JSONSerialization.data(withJSONObject: params)
         let url = URL(string: urlLink)
         var request = URLRequest(url: url!)

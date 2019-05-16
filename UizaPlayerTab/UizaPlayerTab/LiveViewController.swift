@@ -45,7 +45,7 @@ class LiveViewController: UZLiveStreamViewController {
         startButton.setBackgroundColor(UIColor(displayP3Red: 0.91, green: 0.31, blue: 0.28, alpha: 0.60), for: .disabled)
         startButton.title = "Go Live!"
         self.liveEventId = sdkLiveId
-        self.livestreamUIView = MyLiveStreamUIView()
+        self.livestreamUIView = UZLiveStreamUIView()
     }
     
     override func viewDidLayoutSubviews() {
@@ -55,10 +55,39 @@ class LiveViewController: UZLiveStreamViewController {
         liveDurationLabel.frame = CGRect(x: 10, y: 10, width: labelSize.width, height: labelSize.height)
         startButton.frame = CGRect(x: 10, y: viewSize.height - 100, width: viewSize.width - 20, height: 45)
     }
+    
+    //when you stop live
+    override func askToStop() {
+        let alertControler = UIAlertController(title: "Confirm", message: "Do you really want to stop livestream?", preferredStyle: .alert)
+        
+        alertControler.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action) in
+            alertControler.dismiss(animated: true, completion: nil)
+        }))
+        
+        alertControler.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+            alertControler.dismiss(animated: true, completion: nil)
+            self.stopLive()
+            self.dismiss(animated: true, completion: nil)
+            //and we need to stop live event on server
+            let params:[String:Any] = ["id": sdkLiveId]
+            LiveStreamViewController.sendRequest(parameters: params, link: "https://" + sdkUri + "/api/public/v4/live/entity/feed?id=" + sdkLiveId, protocol: "PUT"){(response, error) in
+                if error != nil {
+                    print("\(error)")
+                }else{
+                    print("\(response)")
+                }
+            }
+        }))
+        
+        self.present(alertControler, animated: true, completion: nil)
+    }
+        
 
 }
 
 class  MyLiveStreamUIView: UZLiveStreamUIView {
+    
+    
     
     override init() {
         super.init()
