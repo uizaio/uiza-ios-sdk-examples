@@ -50,7 +50,7 @@ To customize theme of Uiza Player, you follow these steps:
 * Overriding ``hideLoader()`` to hide loading indicator
 * Overriding ``update(withResource: UZPlayerResource?, video: UZVideoItem?, playlist: [UZVideoItem]?)`` to update your UI according to video or playlist
 * Call:
-* 
+
 ```
  let playerViewController = UZPlayerViewController()
  
@@ -81,4 +81,5 @@ And relayout them by addSubview to controlView using some FrameLayout, for examp
 You can add new components to UizaPlayer by:
 * Creating new components, for example: UIButton, UILabel,...
 * Creating delegate for components
- 
+
+See detail in [UZPlayerCustomTheme](https://github.com/uizaio/uiza-ios-sdk-examples/blob/master/UizaPlayerTab/UizaPlayerTab/Themes/UZPlayerCustomTheme.swift)
