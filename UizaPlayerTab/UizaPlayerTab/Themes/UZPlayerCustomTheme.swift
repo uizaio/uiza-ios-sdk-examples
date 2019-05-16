@@ -33,6 +33,7 @@ class UZPlayerCustomTheme: UZPlayerTheme {
     
     let topGradientLayer = CAGradientLayer()
     let bottomGradientLayer = CAGradientLayer()
+//    let customeLabel = UILabel()
     
     internal var topFrameLayout     : DoubleFrameLayout?
     internal var bottomFrameLayout     : StackFrameLayout?
@@ -138,12 +139,14 @@ class UZPlayerCustomTheme: UZPlayerTheme {
         for frameLayout in controlFrameLayout.frameLayouts {
             frameLayout.minSize = buttonMinSize
         }
-        
-        let topLeftFrameLayout = DoubleFrameLayout(direction: .horizontal, views: [controlView.backButton, controlView.titleLabel])
+//        customeLabel.text = "custom label"
+//        customeLabel.textColor = .white
+        let topLeftFrameLayout = DoubleFrameLayout(direction: .horizontal, views: [/*customeLabel,*/ controlView.backButton, controlView.titleLabel])
         topLeftFrameLayout.spacing = 10
         topLeftFrameLayout.isUserInteractionEnabled = true
         topLeftFrameLayout.addSubview(controlView.backButton)
-        topLeftFrameLayout.addSubview(controlView.titleLabel)                
+        topLeftFrameLayout.addSubview(controlView.titleLabel)
+//        topLeftFrameLayout.addSubview(customeLabel)
         topLeftFrameLayout.leftFrameLayout.minSize = buttonMinSize
         
         topFrameLayout = DoubleFrameLayout(direction: .horizontal)

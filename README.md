@@ -37,3 +37,48 @@ You can see UizaPlayerTab example
 
 You can see UizaPlayerV4 example
 
+### How to customize Uiza Player Theme
+
+To customize theme of Uiza Player, you follow these steps:
+
+* Inheriting ``UZPlayerTheme``, for example we create UZPlayerCustomTheme()
+* Overriding ``updateUI`` method to init your controls
+* Overriding ``layoutControls(rect: CGRect)`` method to layout your controls.
+* Overriding ``cleanUI()`` method to clean code, for example: removing delegate, removing gesture target,...
+* Overriding ``allButtons() -> [UIButton]`` to returns all custom buttons if applicable
+* Overriding ``showLoader()`` method to show loading indicator
+* Overriding ``hideLoader()`` to hide loading indicator
+* Overriding ``update(withResource: UZPlayerResource?, video: UZVideoItem?, playlist: [UZVideoItem]?)`` to update your UI according to video or playlist
+* Call:
+* 
+```
+ let playerViewController = UZPlayerViewController()
+ 
+ playerViewController.player.controlView.theme = UZPlayerCustomTheme()  
+```
+You can customize exist components of UizaPlayer:
+
+* ``backButton:NKButton``
+* ``playlistButton:NKButton``
+* ``helpButton:NKButton``
+* ``ccButton:NKButton``
+* ``settingButton:NKButton``
+* ``volumeButton:NKButton``
+* ``playpauseCenterButton:NKButton``
+* ``playpauseButton:NKButton``
+* ``forwardButton:NKButton``
+* ``backwardButton:NKButton``
+* ``nextButton:NKButton``
+* ``previousButton:NKButton``
+* ``fullscreenButton:NKButton``
+* ``timeSlider:UZSlider``
+* ``castingButton:UZCastButton``
+* ``totalTimeLabel:UILabel``
+* ``remainTimeLabel:UILabel``
+
+And relayout them by addSubview to controlView using some FrameLayout, for example ``StackFrameLayout``,....
+
+You can add new components to UizaPlayer by:
+* Creating new components, for example: UIButton, UILabel,...
+* Creating delegate for components
+ 
