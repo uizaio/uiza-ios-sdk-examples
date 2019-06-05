@@ -30,24 +30,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Options:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sf4-ld-k0i">
-                                <rect key="frame" x="20" y="131" width="64.666666666666671" height="21"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W7y-bS-W1H">
+                                <rect key="frame" x="345" y="171" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DVR:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ed-43-sya">
+                                <rect key="frame" x="20" y="171" width="38" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cEe-H3-lAy">
-                                <rect key="frame" x="47" y="162" width="320" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="UVg-U2-eNu"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="uCk-Tu-1l5" id="3jw-3e-S8D"/>
-                                    <outlet property="delegate" destination="uCk-Tu-1l5" id="Szq-4a-tmq"/>
-                                </connections>
-                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encode:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCi-j2-BHg">
+                                <rect key="frame" x="20" y="242" width="63" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rl7-JZ-MHh">
+                                <rect key="frame" x="345" y="232" width="51" height="31"/>
+                            </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2S8-ML-BFK">
-                                <rect key="frame" x="170.66666666666666" y="222" width="73" height="30"/>
+                                <rect key="frame" x="171" y="444" width="73" height="30"/>
                                 <state key="normal" title="Create live"/>
                                 <connections>
                                     <action selector="createLive:" destination="uCk-Tu-1l5" eventType="touchUpInside" id="757-dk-1u7"/>
@@ -56,24 +58,29 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="rDd-ZI-tnk" firstAttribute="trailing" secondItem="rl7-JZ-MHh" secondAttribute="trailing" constant="20" id="3s0-gp-zWF"/>
                             <constraint firstItem="2S8-ML-BFK" firstAttribute="centerX" secondItem="cX0-UI-jOh" secondAttribute="centerX" id="8IG-WK-hjP"/>
+                            <constraint firstItem="TCi-j2-BHg" firstAttribute="top" secondItem="1Ed-43-sya" secondAttribute="bottom" constant="50" id="A9s-vh-BMj"/>
+                            <constraint firstItem="rDd-ZI-tnk" firstAttribute="trailing" secondItem="W7y-bS-W1H" secondAttribute="trailing" constant="20" id="ADL-Cf-m10"/>
+                            <constraint firstItem="W7y-bS-W1H" firstAttribute="top" secondItem="oLq-6W-aVK" secondAttribute="bottom" constant="50" id="F3i-7T-tr7"/>
                             <constraint firstItem="f5K-gh-lWs" firstAttribute="leading" secondItem="rDd-ZI-tnk" secondAttribute="leading" constant="20" id="KzC-Nr-mkJ"/>
                             <constraint firstItem="rDd-ZI-tnk" firstAttribute="trailing" secondItem="oLq-6W-aVK" secondAttribute="trailing" constant="20" id="OJU-oi-Ksh"/>
-                            <constraint firstItem="cEe-H3-lAy" firstAttribute="top" secondItem="Sf4-ld-k0i" secondAttribute="bottom" constant="10" id="P8n-FV-zSf"/>
+                            <constraint firstItem="1Ed-43-sya" firstAttribute="leading" secondItem="rDd-ZI-tnk" secondAttribute="leading" constant="20" id="Swn-nS-XHY"/>
+                            <constraint firstItem="TCi-j2-BHg" firstAttribute="leading" secondItem="rDd-ZI-tnk" secondAttribute="leading" constant="20" id="Tlj-b2-xvj"/>
                             <constraint firstItem="oLq-6W-aVK" firstAttribute="top" secondItem="f5K-gh-lWs" secondAttribute="bottom" constant="10" id="aeK-d0-sxc"/>
-                            <constraint firstItem="Sf4-ld-k0i" firstAttribute="leading" secondItem="rDd-ZI-tnk" secondAttribute="leading" constant="20" id="dgw-Uq-bcu"/>
                             <constraint firstItem="f5K-gh-lWs" firstAttribute="top" secondItem="rDd-ZI-tnk" secondAttribute="top" constant="40" id="eRs-2x-KpN"/>
+                            <constraint firstItem="2S8-ML-BFK" firstAttribute="top" secondItem="TCi-j2-BHg" secondAttribute="top" constant="202" id="jWk-cI-RiT"/>
                             <constraint firstItem="oLq-6W-aVK" firstAttribute="leading" secondItem="rDd-ZI-tnk" secondAttribute="leading" constant="20" id="lQG-qt-0ub"/>
-                            <constraint firstItem="2S8-ML-BFK" firstAttribute="top" secondItem="cEe-H3-lAy" secondAttribute="bottom" constant="10" id="lxm-ad-nWs"/>
-                            <constraint firstItem="Sf4-ld-k0i" firstAttribute="top" secondItem="oLq-6W-aVK" secondAttribute="bottom" constant="10" id="urL-tr-R1i"/>
-                            <constraint firstItem="cEe-H3-lAy" firstAttribute="centerX" secondItem="cX0-UI-jOh" secondAttribute="centerX" id="vfI-ij-gcx"/>
+                            <constraint firstItem="rl7-JZ-MHh" firstAttribute="top" secondItem="W7y-bS-W1H" secondAttribute="bottom" constant="30" id="qu6-xN-HtP"/>
+                            <constraint firstItem="1Ed-43-sya" firstAttribute="top" secondItem="oLq-6W-aVK" secondAttribute="bottom" constant="50" id="tFe-kw-LbT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rDd-ZI-tnk"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="LiveStream" id="bmt-MR-SQb"/>
                     <connections>
+                        <outlet property="dvrSwitch" destination="W7y-bS-W1H" id="rpX-ge-miC"/>
+                        <outlet property="encodeSwitch" destination="rl7-JZ-MHh" id="Rbc-Hu-6Bm"/>
                         <outlet property="liveName" destination="oLq-6W-aVK" id="22T-K5-IhC"/>
-                        <outlet property="modePicker" destination="cEe-H3-lAy" id="RNA-V1-XxL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLV-Ky-ajz" userLabel="First Responder" sceneMemberID="firstResponder"/>

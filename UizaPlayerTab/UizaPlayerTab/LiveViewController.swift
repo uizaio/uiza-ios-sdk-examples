@@ -45,7 +45,10 @@ class LiveViewController: UZLiveStreamViewController {
         startButton.setBackgroundColor(UIColor(displayP3Red: 0.91, green: 0.31, blue: 0.28, alpha: 0.60), for: .disabled)
         startButton.title = "Go Live!"
         self.liveEventId = sdkLiveId
-        self.livestreamUIView = UZLiveStreamUIView()
+        self.livestreamUIView = UizaLiveCustomTheme()
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
+        swipeDown.direction = UISwipeGestureRecognizer.Direction.down
+        self.view.addGestureRecognizer(swipeDown)
     }
     
     override func viewDidLayoutSubviews() {
@@ -53,7 +56,7 @@ class LiveViewController: UZLiveStreamViewController {
         let viewSize = view.bounds.size
         let labelSize = liveDurationLabel.sizeThatFits(viewSize)
         liveDurationLabel.frame = CGRect(x: 10, y: 10, width: labelSize.width, height: labelSize.height)
-        startButton.frame = CGRect(x: 10, y: viewSize.height - 100, width: viewSize.width - 20, height: 45)
+        startButton.frame = CGRect(x: 10, y: viewSize.height - 55, width: viewSize.width - 20, height: 45)
     }
     
     //when you stop live
@@ -82,28 +85,48 @@ class LiveViewController: UZLiveStreamViewController {
         self.present(alertControler, animated: true, completion: nil)
     }
         
-
-}
-
-class  MyLiveStreamUIView: UZLiveStreamUIView {
-    
-    
-    
-    override init() {
-        super.init()
-        //add custom UI here
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        //customize layout here
-    }
-    
-    override func onButtonSelected(_ button: UIButton) {
-        print("\(button.currentTitle)")
+    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer){
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer{
+            switch swipeGesture.direction{
+            case UISwipeGestureRecognizer.Direction.right:
+                print("Swiped right")
+            case UISwipeGestureRecognizer.Direction.down:
+                print("Swiped down")
+                DispatchQueue.main.async {
+                    //only create new view if it's not initiated
+                    let viewController = FloatingLiveViewController.currentInstance ?? FloatingLiveViewController()
+                    viewController.present(self, animated: true, completion: nil)
+                }
+            case UISwipeGestureRecognizer.Direction.left:
+                print("Swiped left")
+            case UISwipeGestureRecognizer.Direction.up:
+                print("Swiped up")
+            default:
+                break
+            }
+        }
     }
 }
+
+//class  MyLiveStreamUIView: UZLiveStreamUIView {
+//
+//
+//
+//    override init() {
+//        super.init()
+//        //add custom UI here
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        //customize layout here
+//    }
+//
+//    override func onButtonSelected(_ button: UIButton) {
+//        print("\(button.currentTitle)")
+//    }
+//}
